@@ -1,19 +1,22 @@
-# Deblur NeRF with Trajectory for project of ETHZ 3DVison Lecture
+# TrajDeblur NeRF for ETHZ 3DVison project
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
 ![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/image/deblur_pipeline.png)
 
 ## Experimental Results: 
-./logs/exp/ --experiment outputs
-- bookshelf/20230515_2220 --bookshelf scene
-- poster/20230515_1450 --poster scene 
-- 520v_room/20230516 --room scene 
-- poster_less/20230608_1545 --poster scene with less training images 
-
-./data/experiments --experiment data
-- bookshelf --bookshelf scene
-- poster --poster scene 
-- 520view_room --room scene 
+Saved models and output images for our experiments can be found [here](https://drive.google.com/drive/folders/1QVC7wxyLZeEcIck142Z531eHLeQANbt5?usp=drive_link). Illustration of each folder:
+./TestScenes --Trained on poster, bookshelf, and whole room scenes
+- bookshelf_base --bookshelf scene
+- poster_base --poster scene 
+- room_base --room scene 
 - poster_less --poster scene with less training images 
+- tensorboard_logs
+
+./AblationStudy --Trained on blurball scene, comparing between w/ and w/o Trajectory Information
+- base_blurball --w/o Trajectory (original Deblur NeRF)
+- traj_blurball --w/ Trajectory
+- norm_traj_blurball --w/ Trajectory and normalized trajectory embedding
+- tensorboard_logs
+
 
 ## Quick Start:
 ### 1. Setup Environment
@@ -57,19 +60,21 @@ Follow the instructions [here](https://github.com/limacv/Deblur-NeRF#2-download-
 This dataset is captured by Hololens2 and consists of two video recordings of two different room scenes. Each capture contains thousands of RGB video frames in 1280×720, monocular depth frames in a lower capturing frequency, the intrinsic parameters of the camera, and the corresponding camera poses and timestamp for each RGB frame. For the first capture ([AnnaTrain](https://drive.google.com/file/d/1ejI0oGDvouf8kSXmtE2YtDnUD5xQ9CJ0/view)/[GowthamTrain](https://drive.google.com/file/d/1SDoMu82SKCXeIN0Jx5hPdFrSIh5NdLd5/view)), the HoloLens has a relatively slow movement, which results in a dataset containing less motion blur. While the second capture (named [AnnaTest](https://drive.google.com/file/d/1GM86hnksWmncO_VzHofgo8cX0_KKEzvO/view)/[GowthamTest](https://drive.google.com/file/d/1ch8T6YyFJjmdYxV6ZIc7_MvTgNo4QHTE/view)) contains more motion blur. Here use the AnnaTrain as an example.
 ```
 AnnaTrain
-     ├── Depth
-     ├── Head
-     ├── SceneUnderstanding
-     ├── Video
+     ├── Depth (not used for this method)
+     ├── Head (not used for this method)
+     ├── SceneUnderstanding (not used for this method)
+     ├── Video(rename into: images)
      └── poses_bounds.npy
 ```
 
 
 Following these steps to use Room Dataset
-1. Run `./llff_convertion.py` to transform camera poses from HoloLens to COLMAP. Store the poses_bounds.npy following the above data structure.
-2. Change code in `load_llff.py` line **268** (you'll see instructions there)
-3. Modify data paths in config files correspondingly. 
+1. Rename `Video` folder into images
+2. Run `./llff_convertion.py` to transform camera poses from HoloLens to COLMAP. Store the poses_bounds.npy following the above data structure.
+3. Change code in `load_llff.py` line **268** (you'll see instructions there)
+4. Modify data paths in config files correspondingly. 
 
+**For more information regarding coordinate transformation, check [this](https://github.com/Dzl666/3DVision_DSNerf#coordinate-system)**
 ## Contact
 Boxiang Rong - borong@ethz.ch
 
