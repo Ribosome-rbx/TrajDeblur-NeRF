@@ -1,7 +1,7 @@
 # TrajDeblur NeRF for ETHZ 3DVison project
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
 
-Modified on Deblur NeRF, to use Hololen captured dataset and replaced view embedding with trajectory information.
+Modified on Deblur NeRF, to use Hololens captured dataset and replaced view embedding with trajectory information.
 ![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/resource/deblur_pipeline.png)
 
 ## Experimental Results: 
@@ -33,7 +33,7 @@ Illustration of each folder:
 * Activate virtual environment: `source ../env-3dvision/bin/activate`
 
 ### 2. training and testing
-Overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf. Configs used for our experiments can be found in `./configs/3dvision_configs`. We added the following new parameters to construct `config.txt`:
+Overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf. Configs used for our experiments can be found in `./configs/3dvision_configs`. We added the following new parameters to construct `config.txt`. To use original Deblur NeRF, simply set these two parameters into 0:
 
 1. kernel_quater_embed --the dim of quaternion coordinate embedding, generally set into 0 or 2.
 2. kernel_velocity_embed --the dim of velocity coordinate embedding, generally set into 0 or 2.
@@ -86,8 +86,6 @@ Following these steps to use Room Dataset
 4. Modify data paths in config files correspondingly. 
 
 **For more information regarding coordinate transformation, check [this](https://github.com/Dzl666/3DVision_DSNerf#coordinate-system)**
-## Contact
-Boxiang Rong - borong@ethz.ch
 
 ## Citation and Acknowledgmentgs:
 Our pipeline is build upon the [Deblur-Nerf](https://github.com/limacv/Deblur-NeRF) pipeline. If you use our code, please make sure to cite the original Deblur-Nerf paper:
