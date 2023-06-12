@@ -11,13 +11,13 @@ Illustration of each folder:
 
 
 ./TestScenes --Trained on poster, bookshelf, and whole room scenes
-- bookshelf_base --bookshelf scene (corresponding to 4.3 in report)
+- bookshelf_base --bookshelf scene (corresponds to 4.3 in report)
 - poster_base --poster scene 
 - room_base --room scene 
-- poster_less --poster scene with less training images (corresponding to 4.4.2 in report)
+- poster_less --poster scene with less training images (corresponds to 4.4.2 in report)
 - tensorboard_logs
 
-./AblationStudy --Trained on blurball scene, comparing between w/ and w/o Trajectory Information (corresponding to 4.4.1 in report)
+./AblationStudy --Trained on blurball scene, comparing between w/ and w/o Trajectory Information (corresponds to 4.4.1 in report)
 - base_blurball --w/o Trajectory (original Deblur NeRF)
 - traj_blurball --w/ Trajectory
 - norm_traj_blurball --w/ Trajectory and normalized trajectory embedding
