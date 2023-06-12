@@ -24,12 +24,13 @@
 * Activate virtual environment: `source ../env-3dvision/bin/activate`
 
 ### 2. training and testing
-* overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf.
-* We added the following new parameters to construct `config.txt`:
-```
-kernel_quater_embed # the dim of quaternion coordinate embedding, generally set into 0 or 2.
-kernel_velocity_embed # the dim of velocity coordinate embedding, generally set into 0 or 2.
-```
+overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf.
+
+We added the following new parameters to construct `config.txt`:
+
+1. kernel_quater_embed --the dim of quaternion coordinate embedding, generally set into 0 or 2.
+2. kernel_velocity_embed --the dim of velocity coordinate embedding, generally set into 0 or 2.
+
 #### If running on euler
 The following command examples would be useful:
 * Debug `srun --time=1:30:00 --gpus=1 --gres=gpumem:16g -n 2 --mem-per-cpu=8g --pty bash`
@@ -41,9 +42,11 @@ The following command examples would be useful:
 
 * Change access permission for others: `chmod -R u+rwx,g+rwx,o+rx ./`
 
-> Training `sbatch --time=16:00:00 --gpus=1 --gres=gpumem:32g --cpus-per-task=1 --mem-per-cpu=32g --output=./logs/raw_output --open-mode=append --wrap="python run_nerf.py --config configs/demo_blurball.txt > ./logs/training_log"`
+Training
+```sbatch --time=16:00:00 --gpus=1 --gres=gpumem:32g --cpus-per-task=1 --mem-per-cpu=32g --output=./logs/raw_output --open-mode=append --wrap="python run_nerf.py --config configs/demo_blurball.txt > ./logs/training_log"```
 
-> Only Render `sbatch --time=16:00:00 --gpus=1 --gres=gpumem:32g --cpus-per-task=1 --mem-per-cpu=32g --output=./logs/raw_output --open-mode=append --wrap="python run_nerf.py --config configs/demo_blurball.txt --render_only > ./logs/testing_log"`
+Only Render
+```sbatch --time=16:00:00 --gpus=1 --gres=gpumem:32g --cpus-per-task=1 --mem-per-cpu=32g --output=./logs/raw_output --open-mode=append --wrap="python run_nerf.py --config configs/demo_blurball.txt --render_only > ./logs/testing_log"```
 
 #### Other useful commands
 * upload file on to server: `scp -r /path/filename borong@euler.ethz.ch:/path`
