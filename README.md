@@ -1,6 +1,6 @@
 # Deblur NeRF with Trajectory for project of ETHZ 3DVison Lecture
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
-![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/image/deblur_pipeline.png)
+![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/image/deblur_pipeline.png)
 
 ## Experimental Results: 
 ./logs/exp/ --experiment outputs
