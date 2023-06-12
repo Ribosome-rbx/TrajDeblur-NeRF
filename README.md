@@ -1,9 +1,9 @@
 # TrajDeblur NeRF for ETHZ 3DVison project
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
-![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/image/deblur_pipeline.png)
+![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/resource/deblur_pipeline.png)
 
 ## Experimental Results: 
-Saved models and output images for our experiments can be found [here](https://drive.google.com/drive/folders/1QVC7wxyLZeEcIck142Z531eHLeQANbt5?usp=drive_link). Illustration of each folder:
+In `resource`, you can find a demo showing the reconstruction of AnnaRoom by Deblur NeRF. More output images and saved models of our experiments can be found [here](https://drive.google.com/drive/folders/1QVC7wxyLZeEcIck142Z531eHLeQANbt5?usp=drive_link). Illustration of each folder:
 
 
 ./TestScenes --Trained on poster, bookshelf, and whole room scenes
@@ -29,10 +29,15 @@ Saved models and output images for our experiments can be found [here](https://d
 * Activate virtual environment: `source ../env-3dvision/bin/activate`
 
 ### 2. training and testing
-overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf. We added the following new parameters to construct `config.txt`:
+Overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf. Configs used for our experiments can be found in `./configs/3dvision_configs`. We added the following new parameters to construct `config.txt`:
 
 1. kernel_quater_embed --the dim of quaternion coordinate embedding, generally set into 0 or 2.
 2. kernel_velocity_embed --the dim of velocity coordinate embedding, generally set into 0 or 2.
+
+For a simple demo of TrajDeblur NeRF, please download blurball [data](https://hkustconnect-my.sharepoint.com/personal/lmaag_connect_ust_hk/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Flmaag%5Fconnect%5Fust%5Fhk%2FDocuments%2Fshare%2FCVPR2022%2Fdeblurnerf%5Fdataset%2Freal%5Fcamera%5Fmotion%5Fblur%2Fblurball), and run:
+```
+python run_nerf.py --config configs/3dvision_configs/traj_blurball.txt
+```
 
 ### 3. Useful Commands for Running on Euler
 * Debug `srun --time=1:30:00 --gpus=1 --gres=gpumem:16g -n 2 --mem-per-cpu=8g --pty bash`
