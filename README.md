@@ -24,15 +24,12 @@
 * Activate virtual environment: `source ../env-3dvision/bin/activate`
 
 ### 2. training and testing
-overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf.
-
-We added the following new parameters to construct `config.txt`:
+overall procedures please follow [instructions](https://github.com/limacv/Deblur-NeRF#3-setting-parameters) of Deblur-Nerf. We added the following new parameters to construct `config.txt`:
 
 1. kernel_quater_embed --the dim of quaternion coordinate embedding, generally set into 0 or 2.
 2. kernel_velocity_embed --the dim of velocity coordinate embedding, generally set into 0 or 2.
 
-#### If running on euler
-The following command examples would be useful:
+### 3. Useful Commands for Running on Euler
 * Debug `srun --time=1:30:00 --gpus=1 --gres=gpumem:16g -n 2 --mem-per-cpu=8g --pty bash`
 * Check the status of allocation: `squeue` or `watch -n 0 squeue`
 
