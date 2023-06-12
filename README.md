@@ -1,9 +1,12 @@
 # TrajDeblur NeRF for ETHZ 3DVison project
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
+Modified on Deblur NeRF, to use Hololen captured dataset and replaced view embedding with trajectory information.
 ![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/resource/deblur_pipeline.png)
 
 ## Experimental Results: 
-In `resource`, you can find a demo showing the reconstruction of AnnaRoom by Deblur NeRF. More output images and saved models of our experiments can be found [here](https://drive.google.com/drive/folders/1QVC7wxyLZeEcIck142Z531eHLeQANbt5?usp=drive_link). Illustration of each folder:
+In `./resource`, you can find a demo showing the reconstruction of AnnaRoom by Deblur NeRF. See [this](https://drive.google.com/drive/folders/1QVC7wxyLZeEcIck142Z531eHLeQANbt5?usp=drive_link) for More output images and saved models of our experiments.
+
+Illustration of each folder:
 
 
 ./TestScenes --Trained on poster, bookshelf, and whole room scenes
