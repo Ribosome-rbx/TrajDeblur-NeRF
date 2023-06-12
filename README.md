@@ -1,5 +1,6 @@
 # TrajDeblur NeRF for ETHZ 3DVison project
 [Report](link) | [Video](https://youtube.com/playlist?list=PLUffCQyBEYtbOQg4-66ZrcuNmsX0OXVKv)
+
 Modified on Deblur NeRF, to use Hololen captured dataset and replaced view embedding with trajectory information.
 ![](https://github.com/Ribosome-rbx/TrajDeblur-NeRF/blob/main/resource/deblur_pipeline.png)
 
